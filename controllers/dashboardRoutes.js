@@ -3,7 +3,7 @@ const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 // GET all posts for dashboard
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
 	try {
 		const postData = await Post.findAll({
 			attributes: ['id', 'title', 'post_text', 'post_date'],
