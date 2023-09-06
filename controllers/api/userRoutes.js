@@ -40,13 +40,13 @@ router.post('/login', async (req, res) => {
         if (!validPassword) {
             res.status(400).json({ message: 'Incorret email or password, please try again' });
         }
-
+        const userInfo = user.get({ plain: true })
         req.session.save(() => {
-            req.session.user_id = user.id;
-            res.session.username = user.username;
+            req.session.user_id = userInfo.id;
+            req.session.username = userInfo.username;
             req.session.loggedIn = true;
 
-            res.status(200).json({ user, message: 'Logged In' });
+            res.status(200).json({ userInfo, message: 'Logged In' });
         });
     } catch (error) {
         res.status(500).json(error);
@@ -72,7 +72,7 @@ router.delete('/:id', async (req, res) => {
             }
         });
         if (!deletedUser) {
-            res.status(404).json({ message: 'sorry, can not find user' });
+            res.status(404).json({ message: 'sorry, cannot find user' });
         } else {
             res.status(200).json({ message: 'User successfully deleted' })
         }

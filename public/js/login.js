@@ -1,8 +1,8 @@
-const loginFormHandler = async (event) => {
+const login = async (event) => {
     event.preventDefault();
 
     const email = document.querySelector('#email-login').value.trim();
-    const password = documnet.querySelector('#password-login');
+    const password = document.querySelector('#password-login');
 
     if (email && password) {
         const response = await fetch('/api/user/login', {
@@ -12,18 +12,18 @@ const loginFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            documnet.location.replace('/');
+            document.location.replace('/');
         } else {
             alert('Sorry, could not log in');
         }
     }
 }
 
-const signupFormHandler = async (event) => {
+const signup = async (event) => {
     event.preventDefault();
 
     const username = document.querySelector('#username-signup').value.trim();
-    const email = documnet.querySelector('#email-signup').value.trim();
+    const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
 
     if (username && email && password) {
@@ -41,5 +41,5 @@ const signupFormHandler = async (event) => {
     }
 };
 
-document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
-document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+document.querySelector('.login-form').addEventListener('submit', login);
+document.querySelector('.signup-form').addEventListener('submit', signup);

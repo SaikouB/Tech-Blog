@@ -1,10 +1,9 @@
-const path = require('path');
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 // GET all posts for dashboard
-router.get('/dashboard', async (req, res) => {
+router.get('/', async (req, res) => {
 	try {
 		const postData = await Post.findAll({
 			attributes: ['id', 'title', 'post_text', 'post_date'],
@@ -20,13 +19,13 @@ router.get('/dashboard', async (req, res) => {
 			]
 		});
 		if (!postData) {
-			res.render('error', { message: 'Cannot get posts' });
+			res.send({ message: 'Cannot get posts' });
 		} else {
-			res.render('dashboard', postData);
+			res.render('dashboard');
 		}
 	} catch (error) {
 		console.log(error);
-		res.status(500).json(error);
+		res.send(error);
 	}
 });
 
