@@ -64,21 +64,5 @@ router.post('/logout', (req, res) => {
     }
 });
 
-router.delete('/:id', async (req, res) => {
-    try {
-        const deletedUser = await User.destroy({
-            where: {
-                id: req.params.id
-            }
-        });
-        if (!deletedUser) {
-            res.status(404).json({ message: 'sorry, cannot find user' });
-        } else {
-            res.status(200).json({ message: 'User successfully deleted' })
-        }
-    } catch (error) {
-        res.status(500).json(error)
-    }
-});
 
 module.exports = router;

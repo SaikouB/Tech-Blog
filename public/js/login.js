@@ -2,17 +2,17 @@ const login = async (event) => {
     event.preventDefault();
 
     const email = document.querySelector('#email-login').value.trim();
-    const password = document.querySelector('#password-login');
+    const password = document.querySelector('#password-login').value.trim();
 
     if (email && password) {
-        const response = await fetch('/api/user/login', {
+        const response = await fetch('api/user/login', {
             method: 'POST',
             body: JSON.stringify({ email, password }),
             headers: {'Content-Type': 'application/json'},
         });
 
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/dashboard');
         } else {
             alert('Sorry, could not log in');
         }
@@ -34,7 +34,7 @@ const signup = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/dashboard');
         } else {
             alert('Failed to sign up.')
         }

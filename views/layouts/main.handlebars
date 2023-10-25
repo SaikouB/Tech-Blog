@@ -14,12 +14,12 @@
     <header>
         <nav class="navbar bg-body-tertiary">
             <div class="container-fluid">
-                <h1 id="title">Tech Blog</h1>
-                <a href="/" class="">Home</a>
-                <a href="/dashboard" class="dashboard-btn">Dashboard</a>
+                <h1> <a href="/" class="home">Tech Blog</a></h1>
                 {{#if loggedIn}}
+                <a href="/dashboard" class="dashboard-btn">Dashboard</a>
                 <a href="/logout" class="logout-btn">Logout</a>
                 {{else}}
+                <a href="/dashboard" class="dashboard-btn">Dashboard</a>
                 <a href="/login" class="login-btn">Login</a>
                 {{/if}}
             </div>
@@ -29,7 +29,7 @@
         {{{body}}}
     </main>
     {{#if loggedIn}}
-    <script src="/public/js/logout.js"></script>
+    <script src="/js/logout.js"></script>
     {{/if}}
 
     <footer>

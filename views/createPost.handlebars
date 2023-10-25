@@ -1,9 +1,21 @@
-<article>
-	<h2>Create Post</h2>
-	<form>
-		<div class="mb-3">
-			<label for="formGroupExampleInput" class="form-label">Title</label>
-			<input type="text" class="form-control" id="formGroupExampleInput" placeholder="Type here">
-		</div>
+<div class="form-floating">
+	
+	<form class="card-body" id="create-post">
+
+		<section class="form-floating ">
+			<h5 name="newpost-title" class="form-label"></h5>
+			<input type="text" class="newpost-title-input" placeholder="Title"{{ post.title }}>
+		</section>
+
+		<section>
+			<h5 name="newpost-text" class="form-label"></h5>
+			<textarea class="text-input" type="text" placeholder="Share your thoughts"{{ post.post_text }}></textarea>
+		</section>
+
+		<button id="create-post-btn" type="submit" class="btn btn-primary">Post</button>
+		<button id="cancel-post-btn" type="button" class="btn btn-secondary">Cancel</button>
 	</form>
-</article>
+	
+</div>
+
+<script src="/js/createPost.js"></script>

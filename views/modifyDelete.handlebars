@@ -1,0 +1,20 @@
+<div class="form-floating">
+	<h4 class="card-header">Modify/Delete Post</h4>
+	<form class="card-body modify-post">
+
+		<section class="form-floating ">
+			<h5 for="post-title" class="form-label">Post</h5>
+			<input type="text" class="title-input" placeholder={{ post.title }}>
+		</section>
+
+		<section>
+			<h5 for="post-text" class="form-label">Text</h5>
+			<textarea class="text-input" type="text" placeholder={{ post.post_text }}></textarea>
+		</section>
+
+		<button type="submit" class="modify-post-btn btn-primary">Modify</button>
+		<button type="button" class="delete-post-btn btn-danger">Delete</button>
+	</form>
+</div>
+
+<script src="/js/modifyDelete.js"></script>
